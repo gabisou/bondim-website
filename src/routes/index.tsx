@@ -1,21 +1,27 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import capaImg from '../assets/imgs/capa.png';
+import Features from "~/sections/Features/Features";
 
 export default component$(() => {
   return (
     <>
-      <h1>Hi 👋</h1>
-      <div>
-        Can't wait to see what you build with qwik!
-        <br />
-        Happy coding.
-      </div>
+      <img
+        src={capaImg}
+        alt="Capa BONDIM"
+        width={1920}
+        height={1080}
+        style={{ width: '100%', height: 'auto' }}
+        loading="lazy"
+      />
+
+      <Features />
     </>
   );
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: "BONDIM",
   meta: [
     {
       name: "description",
