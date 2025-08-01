@@ -1,13 +1,13 @@
-import { component$, Slot, useSignal } from '@builder.io/qwik';
+import { component$, Slot, type QRL } from '@builder.io/qwik';
 import logo from '../../assets/imgs/logo.png';
 
 interface NavbarProps {
   backgroundColor?: string;
+  isOpen: boolean;
+  setIsOpen$: QRL<(value: boolean) => void>;
 }
 
-export const Navbar = component$(({ backgroundColor = '#fff' }: NavbarProps) => {
-  const isOpen = useSignal(false);
-
+export const Navbar = component$(({ backgroundColor = '#fff', isOpen, setIsOpen$ }: NavbarProps) => {
   return (
     <nav
       class="w-full px-6 py-4 shadow-md"
@@ -19,7 +19,7 @@ export const Navbar = component$(({ backgroundColor = '#fff' }: NavbarProps) => 
 
         <button
           class="md:hidden p-2"
-          onClick$={() => (isOpen.value = !isOpen.value)}
+          onClick$={() => setIsOpen$(!isOpen)}
           aria-label="Abrir menu"
         >
           <div class="space-y-1">
@@ -37,7 +37,7 @@ export const Navbar = component$(({ backgroundColor = '#fff' }: NavbarProps) => 
       </div>
 
       {/* Menu mobile: visível quando aberto */}
-      {isOpen.value && (
+      {isOpen && (
         <div class="md:hidden mt-4 flex flex-col gap-2">
           <Slot name="mobile" />
         </div>

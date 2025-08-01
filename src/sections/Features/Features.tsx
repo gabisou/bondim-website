@@ -7,7 +7,7 @@ import feature3 from '../../assets/imgs/feature3.png';
 export default component$(() => {
   return (
     <main class="bg-[#00CCE3]">
-      <h1 class="text-white font-bold uppercase text-7xl text-center py-[10px]">FEATURES</h1>
+      <h1 id="features" class="text-white font-bold uppercase text-7xl text-center py-[10px]">FEATURES</h1>
 
       <div >
 
