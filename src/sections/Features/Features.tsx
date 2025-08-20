@@ -44,7 +44,7 @@ export default component$(() => {
           </div>
         </FeatureBoard>
 
-        <FeatureBoard>
+        <FeatureBoard reverse>
           <div q:slot="image">
             <img src={feature2} width={300} height={200} />
           </div>
