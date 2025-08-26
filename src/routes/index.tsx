@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import capaImg from '../assets/imgs/capa.png';
 import Features from "~/sections/Features/Features";
+import { Media } from "~/sections/Media/Media";
 
 export default component$(() => {
   return (
@@ -16,6 +17,7 @@ export default component$(() => {
       />
 
       <Features />
+      <Media/>
     </>
   );
 });
