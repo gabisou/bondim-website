@@ -11,7 +11,9 @@ export const CarouselMain = component$((props: CarouselMainProps) => {
       <img 
         src={props.images[props.currentIndex.value]} 
         alt={`Screenshot ${props.currentIndex.value + 1}`} 
-        class="w-full max-w-4xl rounded-lg object-contain"
+        class="w-full max-w-full md:max-w-[75vw] rounded-lg object-contain"
+        width={1200}   // original image width
+        height={800}   // original image height
       />
     </div>
   );

@@ -10,11 +10,17 @@ export const CarouselThumbnail = component$((props: CarouselThumbnailProps) => {
   return (
     <button
       onClick$={props.onClick$}
-      class={`flex-shrink-0 w-16 h-16 rounded-md overflow-hidden border-2 ${
-        props.isActive ? 'border-blue-500' : 'border-transparent'
-      } focus:outline-none focus:ring-2 focus:ring-blue-400`}
+      class="flex-shrink-0 rounded-md overflow-hidden"
     >
-      <img src={props.image} alt="Thumbnail" class="w-full h-full object-cover" />
+      <img
+        src={props.image}
+        alt="Thumbnail"
+        class={`w-36 h-24 sm:w-44 sm:h-29 md:w-48 md:h-32 object-cover transition duration-200 ${
+          props.isActive ? 'brightness-100' : 'brightness-20'
+        }`}
+        width={1200}
+        height={800}
+      />
     </button>
   );
 });

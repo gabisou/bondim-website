@@ -7,19 +7,20 @@ interface CarouselStripProps {
 }
 
 export const CarouselStrip = component$((props: CarouselStripProps) => {
-  // $-wrapped function so it's serializable in onClick$
+  // wrap in $ so it's serializable
   const selectThumbnail$ = $( (index: number) => {
     props.currentIndex.value = index;
   });
 
   return (
-    <div class="flex gap-2 justify-center overflow-x-auto px-2">
+    <div class="flex flex-wrap gap-2 justify-center overflow-x-auto px-2">
       {props.images.map((img, index) => (
         <CarouselThumbnail
           key={index}
           image={img}
+          // reactive comparison for isActive
           isActive={props.currentIndex.value === index}
-          onClick$={() => selectThumbnail$(index)} // ✅ serializable
+          onClick$={() => selectThumbnail$(index)}
         />
       ))}
     </div>
