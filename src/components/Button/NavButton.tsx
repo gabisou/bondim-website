@@ -10,13 +10,13 @@ interface NavButtonProps {
 }
 
 export const NavButton = component$(
-  ({ label, color = '#000', backgroundColor = 'transparent', icon, iconPosition = 'left', onClick$ }: NavButtonProps) => {
+  ({ label, color = '#fff', backgroundColor = 'transparent', icon, iconPosition = 'left', onClick$ }: NavButtonProps) => {
     const direction = iconPosition === 'right' ? 'flex-row-reverse' : 'flex-row';
 
     return (
       <button
         onClick$={onClick$}
-        class={`flex ${direction} items-center gap-2 px-4 py-2 rounded hover:opacity-80 transition`}
+        class={`flex ${direction} items-center gap-2 px-4 py-2 rounded hover:opacity-80 transition font-bold text-2xl`}
         style={{
           color,
           backgroundColor,

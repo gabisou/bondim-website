@@ -4,7 +4,19 @@ import { RouterHead } from './components/router-head/router-head';
 
 import './global.css';
 import { NavButton } from './components/Button/NavButton';
+import { DemoButton } from './components/Button/DemoButton';
+import { Dropdown } from './components/Dropdown/Dropdown';
 import { Navbar } from './components/NavBar/NavBar';
+
+import brazilFlag from './assets/icons/brazil.png';
+import usFlag from './assets/icons/united-states.png';
+
+
+const options = [
+  { label: 'PORTUGUÊS (BR)', value: 'pt-br', imageSrc: brazilFlag },
+  { label: 'ENGLISH (US)', value: 'en-us', imageSrc: usFlag },
+];
+
 
 export default component$(() => {
   return (
@@ -19,28 +31,34 @@ export default component$(() => {
         )}
         <RouterHead />
       </head>
-      <body lang="en" class="bg-white text-black font-sans">
-        <Navbar backgroundColor="#FFE02A">
+      <body lang="en" class="bg-white text-white font-sans">
+        <Navbar backgroundColor="#10ABCE">
   {/* LEFT MENU (Desktop) */}
   <div q:slot="left-desktop" class="hidden md:flex items-center gap-4">
-    <NavButton label="BONDIM" />
     <NavButton label="FEATURES" />
     <NavButton label="MEDIA" />
-    <NavButton label="DEMO" />
+     <DemoButton label="DEMO" />
   </div>
 
   {/* RIGHT MENU (Desktop) */}
   <div q:slot="right-desktop" class="hidden md:flex items-center gap-4">
-    <NavButton label="PORTUGUÊS (BR)" />
+    <Dropdown 
+    options={options} 
+    onChange$={(val) => console.log('Dropdown selecionado:', val)} 
+  />
   </div>
 
   {/* MENU MOBILE (todos empilhados) */}
   <div q:slot="mobile" class="flex flex-col gap-2 md:hidden">
-    <NavButton label="BONDIM" />
     <NavButton label="FEATURES" />
     <NavButton label="MEDIA" />
-    <NavButton label="DEMO" />
-    <NavButton label="PORTUGUÊS (BR)" />
+     <div>
+      <DemoButton label="DEMO" />
+      </div>
+    <Dropdown 
+    options={options} 
+    onChange$={(val) => console.log('Dropdown selecionado:', val)} 
+  />
   </div>
 </Navbar>
 
