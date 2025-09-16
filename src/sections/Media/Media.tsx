@@ -9,7 +9,7 @@ export const Media = component$(() => {
     <div class="w-full  bg-[#2F9F5B]" 
     style={{ boxShadow: 'inset -10px -700px 127.2px 58px rgba(255,255,255,0.24)', }}>
       
-      <h1 class="text-white font-bold uppercase text-7xl text-center py-[10px]">MEDIA</h1>
+       <SectionTitle id="media-section" label="MEDIA" />
       
     <Carousel images={[feature1, feature2, feature3]} />
     
