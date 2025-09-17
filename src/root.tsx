@@ -52,12 +52,12 @@ export default component$(() => {
             <NavButton label="BONDIM" onClick$={() => scrollToSectionAndCloseMenu$('bondim')} />
             <NavButton label="FEATURES" onClick$={() => scrollToSectionAndCloseMenu$('features')} />
             <NavButton label="MEDIA" onClick$={() => scrollToSectionAndCloseMenu$('media')} />
-            <NavButton label="DEMO" onClick$={() => scrollToSectionAndCloseMenu$('demo')} />
+            <DemoButton label="DEMO" onClick$={() => scrollToSectionAndCloseMenu$('demo')} />
           </div>
 
           {/* RIGHT MENU (Desktop) */}
           <div q:slot="right-desktop" class="hidden md:flex items-center gap-4">
-            <NavButton label="PORTUGUÊS (BR)" />
+            <Dropdown options={options} selectedValue='pt-br'/>
           </div>
 
           {/* MENU MOBILE (todos empilhados) */}
@@ -65,8 +65,8 @@ export default component$(() => {
             <NavButton label="BONDIM" onClick$={() => scrollToSectionAndCloseMenu$('bondim')} />
             <NavButton label="FEATURES" onClick$={() => scrollToSectionAndCloseMenu$('features')} />
             <NavButton label="MEDIA" onClick$={() => scrollToSectionAndCloseMenu$('media')} />
-            <NavButton label="DEMO" onClick$={() => scrollToSectionAndCloseMenu$('demo')} />
-            <NavButton label="PORTUGUÊS (BR)" />
+            <DemoButton label="DEMO" onClick$={() => scrollToSectionAndCloseMenu$('demo')} />
+            <Dropdown options={options} selectedValue='pt-br'/>
           </div>
         </Navbar>
 
