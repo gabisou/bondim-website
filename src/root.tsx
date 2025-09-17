@@ -1,4 +1,4 @@
-import { component$, isDev } from '@builder.io/qwik';
+import { component$, isDev, useSignal, $, type QRL } from '@builder.io/qwik';
 import { QwikCityProvider, RouterOutlet } from '@builder.io/qwik-city';
 import { RouterHead } from './components/router-head/router-head';
 
@@ -19,7 +19,17 @@ const options = [
 
 
 export default component$(() => {
-  return (
+  
+const isOpen = useSignal(false);
+
+  const scrollToSectionAndCloseMenu$ = $((id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+    isOpen.value = false;
+  });
+ return (
     <QwikCityProvider>
       <head>
         <meta charset="utf-8" />
@@ -31,7 +41,7 @@ export default component$(() => {
         )}
         <RouterHead />
       </head>
-      <body lang="en" class="bg-white text-black font-sans">
+	   <body lang="en" class="bg-white text-black font-sans">
         <Navbar
           backgroundColor="#10ABCE"
           isOpen={isOpen.value}
@@ -39,30 +49,29 @@ export default component$(() => {
         >
           {/* LEFT MENU (Desktop) */}
           <div q:slot="left-desktop" class="hidden md:flex items-center gap-4">
+            <NavButton label="BONDIM" onClick$={() => scrollToSectionAndCloseMenu$('bondim')} />
             <NavButton label="FEATURES" onClick$={() => scrollToSectionAndCloseMenu$('features')} />
             <NavButton label="MEDIA" onClick$={() => scrollToSectionAndCloseMenu$('media')} />
             <DemoButton label="DEMO" onClick$={() => scrollToSectionAndCloseMenu$('demo')} />
           </div>
 
-  {/* RIGHT MENU (Desktop) */}
-  <div q:slot="right-desktop" class="hidden md:flex items-center gap-4">
-    <Dropdown 
-    options={options} 
-    onChange$={(val) => console.log('Dropdown selecionado:', val)} 
-  />
-  </div>
+          {/* RIGHT MENU (Desktop) */}
+          <div q:slot="right-desktop" class="hidden md:flex items-center gap-4">
+            <Dropdown options={options} selectedValue='pt-br'/>
+          </div>
 
           {/* MENU MOBILE (todos empilhados) */}
           <div q:slot="mobile" class="flex flex-col gap-2 md:hidden">
+            <NavButton label="BONDIM" onClick$={() => scrollToSectionAndCloseMenu$('bondim')} />
             <NavButton label="FEATURES" onClick$={() => scrollToSectionAndCloseMenu$('features')} />
             <NavButton label="MEDIA" onClick$={() => scrollToSectionAndCloseMenu$('media')} />
             <DemoButton label="DEMO" onClick$={() => scrollToSectionAndCloseMenu$('demo')} />
             <Dropdown options={options} selectedValue='pt-br'/>
           </div>
         </Navbar>
-        <div class="h-[80px] md:h-[100px]"></div>
+
         <RouterOutlet />
       </body>
     </QwikCityProvider>
-  );
+	 );
 });
