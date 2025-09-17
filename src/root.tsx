@@ -31,14 +31,18 @@ export default component$(() => {
         )}
         <RouterHead />
       </head>
-      <body lang="en" class="bg-white text-white font-sans">
-        <Navbar backgroundColor="#10ABCE">
-  {/* LEFT MENU (Desktop) */}
-  <div q:slot="left-desktop" class="hidden md:flex items-center gap-4">
-    <NavButton label="FEATURES" />
-    <NavButton label="MEDIA" />
-     <DemoButton label="DEMO" />
-  </div>
+      <body lang="en" class="bg-white text-black font-sans">
+        <Navbar
+          backgroundColor="#10ABCE"
+          isOpen={isOpen.value}
+          setIsOpen$={$((v) => (isOpen.value = v))}
+        >
+          {/* LEFT MENU (Desktop) */}
+          <div q:slot="left-desktop" class="hidden md:flex items-center gap-4">
+            <NavButton label="FEATURES" onClick$={() => scrollToSectionAndCloseMenu$('features')} />
+            <NavButton label="MEDIA" onClick$={() => scrollToSectionAndCloseMenu$('media')} />
+            <DemoButton label="DEMO" onClick$={() => scrollToSectionAndCloseMenu$('demo')} />
+          </div>
 
   {/* RIGHT MENU (Desktop) */}
   <div q:slot="right-desktop" class="hidden md:flex items-center gap-4">
@@ -48,20 +52,15 @@ export default component$(() => {
   />
   </div>
 
-  {/* MENU MOBILE (todos empilhados) */}
-  <div q:slot="mobile" class="flex flex-col gap-2 md:hidden">
-    <NavButton label="FEATURES" />
-    <NavButton label="MEDIA" />
-     <div>
-      <DemoButton label="DEMO" />
-      </div>
-    <Dropdown 
-    options={options} 
-    onChange$={(val) => console.log('Dropdown selecionado:', val)} 
-  />
-  </div>
-</Navbar>
-
+          {/* MENU MOBILE (todos empilhados) */}
+          <div q:slot="mobile" class="flex flex-col gap-2 md:hidden">
+            <NavButton label="FEATURES" onClick$={() => scrollToSectionAndCloseMenu$('features')} />
+            <NavButton label="MEDIA" onClick$={() => scrollToSectionAndCloseMenu$('media')} />
+            <DemoButton label="DEMO" onClick$={() => scrollToSectionAndCloseMenu$('demo')} />
+            <Dropdown options={options} selectedValue='pt-br'/>
+          </div>
+        </Navbar>
+        <div class="h-[80px] md:h-[100px]"></div>
         <RouterOutlet />
       </body>
     </QwikCityProvider>

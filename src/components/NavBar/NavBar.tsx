@@ -10,11 +10,8 @@ export const Navbar = component$(({ backgroundColor = '#10ABCE' }: NavbarProps) 
 
   return (
     <nav
-      class="w-full px-6 py-4 shadow-md overflow-hidden"
-      style={{
-        backgroundColor,
-        boxShadow: 'inset 0 -19px 30.7px -6px rgba(206, 239, 255, 0.58)',
-      }}
+      class="fixed top-0 left-0 w-full px-6 py-4 shadow-md z-50"
+      style={{ backgroundColor }}
     >
       {/* Topo da navbar: logo e botão menu */}
       <div class="flex justify-between items-center w-full">

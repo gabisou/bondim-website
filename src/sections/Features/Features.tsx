@@ -11,7 +11,7 @@ import { SectionTitle } from '~/components/SectionElements/SectionTitle';
 export default component$(() => {
   return (
     <main class="bg-[#00CCE3] relative overflow-hidden">
-      <SectionTitle id="features-section" label="FEATURES" />
+      <SectionTitle id="features" label="FEATURES" />
       {/* CONTAINER DAS NUVENS - fica atrás de tudo */}
       <div class="absolute inset-0 pointer-events-none z-0">
         {/* Nuvem esquerda entre topo e primeira feature */}
