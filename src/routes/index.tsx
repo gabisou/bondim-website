@@ -4,7 +4,6 @@ import capaImg from '../assets/imgs/capa.png';
 import Features from "~/sections/Features/Features";
 import { Media } from "~/sections/Media/Media";
 
-
 export default component$(() => {
   return (
     <>
