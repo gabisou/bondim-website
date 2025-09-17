@@ -48,7 +48,6 @@ export default component$(() => {
         >
           {/* LEFT MENU (Desktop) */}
           <div q:slot="left-desktop" class="hidden md:flex items-center gap-4">
-            <NavButton label="BONDIM" onClick$={() => scrollToSectionAndCloseMenu$('bondim')} />
             <NavButton label="FEATURES" onClick$={() => scrollToSectionAndCloseMenu$('features')} />
             <NavButton label="MEDIA" onClick$={() => scrollToSectionAndCloseMenu$('media')} />
             <DemoButton label="DEMO" onClick$={() => scrollToSectionAndCloseMenu$('demo')} />
@@ -61,7 +60,6 @@ export default component$(() => {
 
           {/* MENU MOBILE (todos empilhados) */}
           <div q:slot="mobile" class="flex flex-col gap-2 md:hidden">
-            <NavButton label="BONDIM" onClick$={() => scrollToSectionAndCloseMenu$('bondim')} />
             <NavButton label="FEATURES" onClick$={() => scrollToSectionAndCloseMenu$('features')} />
             <NavButton label="MEDIA" onClick$={() => scrollToSectionAndCloseMenu$('media')} />
             <DemoButton label="DEMO" onClick$={() => scrollToSectionAndCloseMenu$('demo')} />

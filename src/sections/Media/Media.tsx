@@ -3,6 +3,7 @@ import { Carousel } from '~/components/Carousel/Carousel';
 import feature1 from '../../assets/imgs/feature1.png';
 import feature2 from '../../assets/imgs/feature2.png';
 import feature3 from '../../assets/imgs/feature3.png';
+import { SectionTitle } from '~/components/SectionElements/SectionTitle';
 
 export const Media = component$(() => {
   return (
