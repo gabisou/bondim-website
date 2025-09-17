@@ -4,7 +4,19 @@ import { RouterHead } from './components/router-head/router-head';
 
 import './global.css';
 import { NavButton } from './components/Button/NavButton';
+import { DemoButton } from './components/Button/DemoButton';
+import { Dropdown } from './components/Dropdown/Dropdown';
 import { Navbar } from './components/NavBar/NavBar';
+
+import brazilFlag from './assets/icons/brazil.png';
+import usFlag from './assets/icons/united-states.png';
+
+
+const options = [
+  { label: 'PORTUGUÊS (BR)', value: 'pt-br', imageSrc: brazilFlag },
+  { label: 'ENGLISH (US)', value: 'en-us', imageSrc: usFlag },
+];
+
 
 export default component$(() => {
   const isOpen = useSignal(false);
@@ -31,7 +43,7 @@ export default component$(() => {
       </head>
       <body lang="en" class="bg-white text-black font-sans">
         <Navbar
-          backgroundColor="#FFE02A"
+          backgroundColor="#10ABCE"
           isOpen={isOpen.value}
           setIsOpen$={$((v) => (isOpen.value = v))}
         >
