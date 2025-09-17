@@ -3,13 +3,14 @@ import { Carousel } from '~/components/Carousel/Carousel';
 import feature1 from '../../assets/imgs/feature1.png';
 import feature2 from '../../assets/imgs/feature2.png';
 import feature3 from '../../assets/imgs/feature3.png';
+import { SectionTitle } from '~/components/SectionElements/SectionTitle';
 
 export const Media = component$(() => {
   return (
     <div class="w-full  bg-[#2F9F5B]" 
     style={{ boxShadow: 'inset -10px -700px 127.2px 58px rgba(255,255,255,0.24)', }}>
       
-       <SectionTitle id="media-section" label="MEDIA" />
+       <SectionTitle id="media" label="MEDIA" />
       
     <Carousel images={[feature1, feature2, feature3]} />
     
