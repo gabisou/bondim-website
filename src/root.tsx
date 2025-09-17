@@ -19,8 +19,7 @@ const options = [
 
 
 export default component$(() => {
-  
-const isOpen = useSignal(false);
+  const isOpen = useSignal(false);
 
   const scrollToSectionAndCloseMenu$ = $((id: string) => {
     const el = document.getElementById(id);
@@ -29,7 +28,7 @@ const isOpen = useSignal(false);
     }
     isOpen.value = false;
   });
- return (
+    return (
     <QwikCityProvider>
       <head>
         <meta charset="utf-8" />
@@ -75,3 +74,4 @@ const isOpen = useSignal(false);
     </QwikCityProvider>
 	 );
 });
+

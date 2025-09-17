@@ -47,4 +47,4 @@ export const Navbar = component$(({ backgroundColor = '#fff', isOpen, setIsOpen$
     <div class="h-[100px]"></div> 
     </>
   );
-})
+});
