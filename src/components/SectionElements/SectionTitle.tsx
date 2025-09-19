@@ -1,6 +1,6 @@
-import { component$, JSX } from '@builder.io/qwik';
+import { component$ } from '@builder.io/qwik';
 
-interface SectionTitleProps extends JSX.HTMLAttributes<HTMLHeadingElement> {
+interface SectionTitleProps  {
   label: string;
   id?: string;
 }

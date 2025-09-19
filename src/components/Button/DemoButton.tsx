@@ -1,8 +1,14 @@
 import { component$ } from '@builder.io/qwik';
 
+interface DemoButtonProps {
+  label: string;
+  onClick$?: () => void;
+}
+
 export const DemoButton = component$(({ label, onClick$ }: DemoButtonProps) => {
   return (
     <button
+      // eslint-disable-next-line qwik/valid-lexical-scope
       onClick$={onClick$}
       class="bg-[#FFE02A] rounded-xl px-2 py-1 font-bold text-white
              hover:bg-yellow-500 transition relative border-1 border-solid border-[#FFE02A] text-2xl"
@@ -18,4 +24,3 @@ export const DemoButton = component$(({ label, onClick$ }: DemoButtonProps) => {
     </button>
   );
 });
-
