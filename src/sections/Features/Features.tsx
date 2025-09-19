@@ -19,6 +19,8 @@ export default component$(() => {
           src={nuvem}
           alt="nuvem esquerda"
           class="absolute left-0 top-[20px] -translate-x-1/2 opacity-75 "
+          width={400}
+          height={200}
         />
 
         {/* Nuvem direita entre segunda e terceira feature */}
@@ -26,6 +28,8 @@ export default component$(() => {
           src={nuvem}
           alt="nuvem direita"
           class="absolute right-0 top-[300px] translate-x-1/2  scale-x-[-1] opacity-75 "
+          width={400}
+          height={200}
          
         />
       </div>
@@ -68,7 +72,7 @@ export default component$(() => {
           </div>
         </FeatureBoard>
       </div>
-      <img src={plantas} class="w-screen relative top-[20px] md:top-[30px] lg:top-[70px]" />
+      <img src={plantas} class="w-screen relative top-[20px] md:top-[30px] lg:top-[70px]" width={1920} height={400} />
 
 
     </main>

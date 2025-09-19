@@ -48,6 +48,7 @@ export const Dropdown = component$(({ options, selectedValue, onChange$ }: Dropd
 
   const handleSelect = $((value: string) => {
     selected.value = value;
+    // eslint-disable-next-line qwik/valid-lexical-scope
     onChange$?.(value);
     isOpen.value = false;
   });
@@ -63,7 +64,7 @@ export const Dropdown = component$(({ options, selectedValue, onChange$ }: Dropd
       >
         <span>{selectedOption?.label}</span>
         {selectedOption?.imageSrc && (
-          <img src={selectedOption.imageSrc} alt="" class="w-16 h-16" />
+          <img src={selectedOption.imageSrc} alt="" class="w-16 h-16"  width={64} height={64}/>
         )}
       </button>
 
@@ -85,7 +86,7 @@ export const Dropdown = component$(({ options, selectedValue, onChange$ }: Dropd
             >
               <span>{option.label}</span>
               {option.imageSrc && (
-                <img src={option.imageSrc} alt="" class="w-16 h-16" />
+                <img src={option.imageSrc} alt="" class="w-16 h-16" width={64}  height={64}/>
               )}
             </li>
           ))}
